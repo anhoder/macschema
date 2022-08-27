@@ -37,9 +37,9 @@ func FetchTopic(ctx context.Context, l Lookup) Topic {
 	short, _ = context.WithTimeout(ctx, dur)
 	go chromedp.Run(short, chromedp.Text(`#declaration pre.source`, &t.Declaration))
 	short, _ = context.WithTimeout(ctx, dur)
-	go chromedp.Run(short, textList(`main div.summary div.frameworks ul li span`, &t.Frameworks))
+	go chromedp.Run(short, textList(`#app div.sidebar div.head-wrapper a h2`, &t.Frameworks))
 	short, _ = context.WithTimeout(ctx, dur)
-	go chromedp.Run(short, textList(`main div.summary div.availability ul li span`, &t.Platforms))
+	go chromedp.Run(short, textList(`main div.availability span span`, &t.Platforms))
 
 	short, _ = context.WithTimeout(ctx, dur)
 	err := chromedp.Run(short, chromedp.WaitVisible(`#topics`))
