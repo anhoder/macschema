@@ -33,7 +33,7 @@ func FetchTopic(ctx context.Context, l Lookup) Topic {
 	short, _ = context.WithTimeout(ctx, dur)
 	go chromedp.Run(short, chromedp.Text(`main div.topictitle span.eyebrow`, &t.Type))
 	short, _ = context.WithTimeout(ctx, dur)
-	go chromedp.Run(short, chromedp.Text(`main div.description div.abstract.content`, &t.Description))
+	go chromedp.Run(short, chromedp.Text(`main div.documentation-hero div.abstract.content`, &t.Description))
 	short, _ = context.WithTimeout(ctx, dur)
 	go chromedp.Run(short, chromedp.Text(`#declaration pre.source`, &t.Declaration))
 	short, _ = context.WithTimeout(ctx, dur)
