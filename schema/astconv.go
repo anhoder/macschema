@@ -54,7 +54,9 @@ func ArgFromAst(ai declparse.ArgInfo) Arg {
 
 func PropertyFromAst(p declparse.PropertyDecl) Property {
 	prop := Property{
-		Name: p.Name,
+		Identifier: Identifier{
+			Name: p.Name,
+		},
 		Type: DataTypeFromAst(p.Type),
 	}
 	attrs := make(map[string]interface{})
@@ -77,7 +79,9 @@ func MethodFromAst(m declparse.MethodDecl) Method {
 		args = append(args, ArgFromAst(arg))
 	}
 	return Method{
-		Name:   m.Name(),
+		Identifier: Identifier{
+			Name: m.Name(),
+		},
 		Return: DataTypeFromAst(m.ReturnType),
 		Args:   args,
 	}

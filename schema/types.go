@@ -89,23 +89,17 @@ type TypeAlias struct {
 }
 
 type Property struct {
-	Name        string
-	Description string
-	Declaration string
-	Type        DataType
-	Attrs       map[string]interface{}
-	Deprecated  bool   `json:",omitempty"`
-	TopicURL    string `json:",omitempty"`
+	Identifier
+
+	Type  DataType
+	Attrs map[string]interface{}
 }
 
 type Method struct {
-	Name        string
-	Description string
-	Declaration string
-	Return      DataType
-	Args        []Arg
-	Deprecated  bool   `json:",omitempty"`
-	TopicURL    string `json:",omitempty"`
+	Identifier
+
+	Return DataType
+	Args   []Arg
 }
 
 type Topic struct {

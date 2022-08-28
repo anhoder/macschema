@@ -206,6 +206,8 @@ func schemaForClass(s *Schema, t Topic) {
 				m.Declaration = t.Declaration
 				m.TopicURL = url
 				m.Deprecated = isDeprecated
+				m.Platforms = t.Platforms
+				m.Frameworks = t.Frameworks
 				c.TypeMethods = append(c.TypeMethods, m)
 			case "Instance Method":
 				m := MethodFromAst(*ast.Method)
@@ -213,6 +215,8 @@ func schemaForClass(s *Schema, t Topic) {
 				m.Declaration = t.Declaration
 				m.TopicURL = url
 				m.Deprecated = isDeprecated
+				m.Platforms = t.Platforms
+				m.Frameworks = t.Frameworks
 				c.InstanceMethods = append(c.InstanceMethods, m)
 			case "Type Property":
 				p := PropertyFromAst(*ast.Property)
@@ -220,6 +224,8 @@ func schemaForClass(s *Schema, t Topic) {
 				p.Declaration = t.Declaration
 				p.TopicURL = url
 				p.Deprecated = isDeprecated
+				p.Platforms = t.Platforms
+				p.Frameworks = t.Frameworks
 				c.TypeProperties = append(c.TypeProperties, p)
 			case "Instance Property":
 				p := PropertyFromAst(*ast.Property)
@@ -227,6 +233,8 @@ func schemaForClass(s *Schema, t Topic) {
 				p.Declaration = t.Declaration
 				p.TopicURL = url
 				p.Deprecated = isDeprecated
+				p.Platforms = t.Platforms
+				p.Frameworks = t.Frameworks
 				c.InstanceProperties = append(c.InstanceProperties, p)
 			default:
 			}
