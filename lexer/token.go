@@ -216,7 +216,7 @@ func tokstr(tok Token, lit string) string {
 
 // Lookup returns the token associated with a given string.
 func Lookup(ident string) Token {
-	if tok, ok := keywords[strings.ToLower(ident)]; ok {
+	if tok, ok := keywords[ident]; ok {
 		return tok
 	}
 	return IDENT
